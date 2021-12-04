@@ -1,0 +1,58 @@
+datasource db {
+  url      = env("DB_URL")
+  provider = "mysql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Users {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  deletedAt DateTime?
+  email     String   @unique
+  name      String
+  password  String
+  address   String
+  zip       String
+  number    Int
+  district  String
+  city      String
+  state     String
+  active    Int       @default(1)
+}
+
+model Vouchers {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
+  deletedAt DateTime?
+  userId    String
+  duration  String
+  value     String
+  code      String
+  rules     String
+  active    Int
+}
+
+model Config {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
+  deletedAt DateTime?
+  userId    String
+  emailSend Int
+}
+
+model Logs {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
+  deletedAt DateTime?
+  userId    String
+  error     Int
+  message   String
+  type      Int
+}

@@ -1,0 +1,40 @@
+{
+  "name": "api-bravo-cashback",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": {
+    "name": "Eduardo Nunes",
+    "email": "eduardodznmb@gmail.com"
+  },
+  "scripts": {
+    "fix": "run-s \"fix:* {@}\" --",
+    "fix:lint": "eslint --fix --no-error-on-unmatched-pattern",
+    "fix:format": "prettier --write",
+    "format": "yarb fix:format 'src/**/*.(js|ts|md|json)'",
+    "lint": "yarn fix:lint src/**/*.{js|ts|md|json}'",
+    "dev": "nodemon --exec babel-node -- src/index.js"
+  },
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "nodemon": "^2.0.15",
+    "prisma": "^3.5.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.5.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "node-cache": "^5.1.2",
+    "pino": "^7.2.0",
+    "pino-pretty": "^7.2.0"
+  }
+}
